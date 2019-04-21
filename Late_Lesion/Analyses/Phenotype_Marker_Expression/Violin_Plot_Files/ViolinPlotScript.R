@@ -1,0 +1,5 @@
+setwd("~/Violin_Plot_Files")
+library(tidyverse)
+Data <- read.csv(file="ViolinData.csv",header=TRUE,stringsAsFactors=TRUE)
+ViolinPlot <- ggplot(Data) + geom_violin(aes(x=factor(Type),y=CD107a,colour=factor(Type)),scale="width",width=0.6) + geom_boxplot(aes(x=factor(Type),y=CD107a,fill=factor(Type)),width=0.2) + guides(fill=FALSE,colour=FALSE) + theme_classic() + ylim(-1,4)
+plot(ViolinPlot)
